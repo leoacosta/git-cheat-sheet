@@ -1,21 +1,84 @@
+import React, { useState } from 'react';
 import './App.css';
+import commands from './data.json';
+
+interface Commands {
+  name: string;
+  description: string;
+}
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Commands[]>([]);
+
+  // filter items based on search term
+  const results = commands.filter((command) =>
+    command.name.includes(searchTerm),
+  );
+
+  // store search term in state
+  function handleChange(event: React.FormEvent<HTMLInputElement>) {
+    setSearchTerm(event.currentTarget.value);
+
+    // @ts-ignore
+    if (event.code === 'Enter') {
+      setSearchResults(results);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      <main className="App-header">
+        <h1>The Git cheat sheet</h1>
         <p>
-          Git Cheat Sheet Coming Soon
+          <code>
+            Search for any git command you can think of.
+            <br />
+            You can also contribute on{' '}
+            <a
+              href="https://github.com/leoacosta/git-cheat-sheet"
+              className="App-link"
+            >
+              GitHub
+            </a>
+            .
+          </code>
         </p>
-        <a
-          className="App-link"
-          href="https://github.com/leoacosta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          👉 Follow the journey on GitHub 👈
-        </a>
-      </header>
+        <div className="search">
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search git command"
+            value={searchTerm}
+            onChange={handleChange}
+            onKeyPress={handleChange}
+          />
+          <button
+            className="search-button"
+            onClick={() => setSearchResults(results)}
+          >
+            <svg
+              width="32"
+              height="32"
+              version="1.1"
+              viewBox="0 0 32 32"
+              aria-hidden="false"
+            >
+              <path d="M22 20c1.2-1.6 2-3.7 2-6 0-5.5-4.5-10-10-10S4 8.5 4 14s4.5 10 10 10c2.3 0 4.3-.7 6-2l6.1 6 1.9-2-6-6zm-8 1.3c-4 0-7.3-3.3-7.3-7.3S10 6.7 14 6.7s7.3 3.3 7.3 7.3-3.3 7.3-7.3 7.3z"></path>
+            </svg>
+          </button>
+        </div>
+        {searchResults.map((item: Commands, index) => (
+          <div className="search-result" key={index}>
+            <h2>
+              <code>{item.name}</code>
+            </h2>
+            <p>
+              <code>{item.description}</code>
+            </p>
+          </div>
+        ))}
+      </main>
     </div>
   );
 }
