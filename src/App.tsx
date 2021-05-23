@@ -13,7 +13,7 @@ function App() {
 
   // filter items based on search term
   const results = commands.filter((command) =>
-    command.name.includes(searchTerm),
+    command.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   // store search term in state
