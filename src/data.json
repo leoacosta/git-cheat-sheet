@@ -1,34 +1,362 @@
 [
   {
-    "name": "init",
-    "description": "Create empty Git repo in specified directory. Run with no arguments to initialize the current directory as a git repository."
+    "name": "git config --list",
+    "description": "Show current configuration:"
   },
   {
-    "name": "clone",
-    "description": "Clone repo located at <repo> onto local machine. Original repo can be located on the local filesystem or on a remote machine via HTTP or SSH."
+    "name": "git config --local --list",
+    "description": "Show repository configuration:"
   },
   {
-    "name": "config",
-    "description": "Define author name to be used for all commits in current repo. Devs commonly use --global flag to set config options for current user."
+    "name": "git config --global --list",
+    "description": "Show global configuration:"
   },
   {
-    "name": "add",
-    "description": "Stage all changes in <directory> for the next commit. Replace <directory> with a <file> to change a specific file."
+    "name": "git config --system --list",
+    "description": "Show system configuration:"
   },
   {
-    "name": "commit",
-    "description": "Commit the staged snapshot, but instead of launching a text editor, use <message> as the commit message."
+    "name": "git config --global user.name “[firstname lastname]”",
+    "description": "Set a name that is identifiable for credit when review version history:"
   },
   {
-    "name": "status",
-    "description": "List which files are staged, unstaged, and untracked."
+    "name": "git config --global user.email “[valid-email]”",
+    "description": "Set an email address that will be associated with each history marker:"
   },
   {
-    "name": "log",
-    "description": "Display the entire commit history using the default format. For customization see additional options."
+    "name": "git config --global color.ui auto",
+    "description": "Set automatic command line coloring for Git for easy reviewing:"
   },
   {
-    "name": "diff",
-    "description": "Show unstaged changes between your index and working directory."
+    "name": "git config --global core.editor vi",
+    "description": "Set global editor for commit"
+  },
+  {
+    "name": "<repo>/.git/config",
+    "description": "Repository specific configuration file [--local]:"
+  },
+  {
+    "name": "~/.gitconfig",
+    "description": "User-specific configuration file [--global]:"
+  },
+  {
+    "name": "/etc/gitconfig",
+    "description": "System-wide configuration file [--system]:"
+  },
+  {
+    "name": "git clone ssh://user@domain.com/repo.git",
+    "description": "Clone an existing repository:"
+  },
+  {
+    "name": "git clone http://domain.com/user/repo.git",
+    "description": "Create a new local repository in the current directory:"
+  },
+  {
+    "name": "git init",
+    "description": "Create a new local repository in a specific directory:"
+  },
+  {
+    "name": "git init <directory>",
+    "description": "Changes in working directory:"
+  },
+  {
+    "name": "git status",
+    "description": "Changes to tracked files:"
+  },
+  {
+    "name": "git diff",
+    "description": "See changes/difference of a specific file:"
+  },
+  {
+    "name": "git diff <file>",
+    "description": "Add all current changes to the next commit:"
+  },
+  {
+    "name": "git add .",
+    "description": "Add some changes in <file> to the next commit:"
+  },
+  {
+    "name": "git add -p <file>",
+    "description": "Add only the mentioned files to the next commit:"
+  },
+  {
+    "name": "git add <filename1> <filename2>",
+    "description": "Commit all local changes in tracked files:"
+  },
+  {
+    "name": "git commit -a",
+    "description": "Commit previously staged changes:"
+  },
+  {
+    "name": "git commit",
+    "description": "Commit with message:"
+  },
+  {
+    "name": "git commit -m 'message here'",
+    "description": "Commit skipping the staging area and adding message:"
+  },
+  {
+    "name": "git commit -am 'message here'",
+    "description": "Commit to some previous date:"
+  },
+  {
+    "name": "git commit --date=\"`date --date='n day ago'`\" -am \"<Commit Message Here>\"",
+    "description": "Change last commit:"
+  },
+  {
+    "name": "git commit -a --amend",
+    "description": "Amend with last commit but use the previous commit log message"
+  },
+  {
+    "name": "GIT_COMMITTER_DATE=\"date\" git commit --amend",
+    "description": "Change committer date of last commit:"
+  },
+  {
+    "name": "git stash\n$ git checkout branch2\n$ git stash pop",
+    "description": "Change Author date of last commit:"
+  },
+  {
+    "name": "git stash drop",
+    "description": "Move uncommitted changes from current branch to some other branch:"
+  },
+  {
+    "name": "git grep \"Hello\"",
+    "description": "Restore stashed changes back to current branch:"
+  },
+  {
+    "name": "git grep \"Hello\" v2.5",
+    "description": "Remove the last set of stashed changes:"
+  },
+  {
+    "name": "git log -S 'keyword'",
+    "description": "A text search on all files in the directory:"
+  },
+  {
+    "name": "git log -S 'keyword' --pickaxe-regex",
+    "description": "In any version of a text search:"
+  },
+  {
+    "name": "git log",
+    "description": "Show commits that introduced a specific keyword"
+  },
+  {
+    "name": "git log --oneline",
+    "description": "Show commits that introduced a specific keyword (using a regular expression)"
+  },
+  {
+    "name": "git log --author=\"username\"",
+    "description": "Show all commits, starting with newest (it'll show the hash, author information, date of commit and title of the commit):"
+  },
+  {
+    "name": "git log -p <file>",
+    "description": "Show all the commits(it'll show just the commit hash and the commit message):"
+  },
+  {
+    "name": "git log --oneline <origin/master>..<remote/master> --left-right",
+    "description": "Show all commits of a specific user:"
+  },
+  {
+    "name": "git blame <file>",
+    "description": "Show changes over time for a specific file:"
+  },
+  {
+    "name": "git reflog show",
+    "description": "Display commits that are present only in remote/branch in right side"
+  },
+  {
+    "name": "git reflog delete",
+    "description": "Who changed, what and when in <file>:"
+  },
+  {
+    "name": "git mv Index.txt Index.html",
+    "description": "Show Reference log:"
+  },
+  {
+    "name": "git branch",
+    "description": "Delete Reference log:"
+  },
+  {
+    "name": "git branch -a",
+    "description": "Rename a file:"
+  },
+  {
+    "name": "git branch -r",
+    "description": "List all local branches:"
+  },
+  {
+    "name": "git checkout <branch>",
+    "description": "List all remote branches:"
+  },
+  {
+    "name": "git checkout <branch> -- <filename>",
+    "description": "Switch HEAD branch:"
+  },
+  {
+    "name": "git checkout -b <branch>",
+    "description": "Checkout single file from different branch"
+  },
+  {
+    "name": "git checkout -",
+    "description": "Create and switch new branch:"
+  },
+  {
+    "name": "git checkout -b <new_branch> <existing_branch>",
+    "description": "Switch to the previous branch, without saying the name explicitly:"
+  },
+  {
+    "name": "git checkout <commit-hash> -b <new_branch_name>",
+    "description": "Create a new branch from an exiting branch and switch to new branch:"
+  },
+  {
+    "name": "git branch <new-branch>",
+    "description": "Create a new branch based on your current HEAD:"
+  },
+  {
+    "name": "git branch --track <new-branch> <remote-branch>",
+    "description": "Create a new tracking branch based on a remote branch:"
+  },
+  {
+    "name": "git branch -d <branch>",
+    "description": "Delete a local branch:"
+  },
+  {
+    "name": "git branch -D <branch>",
+    "description": "Rename current branch to new branch name"
+  },
+  {
+    "name": "git tag <tag-name>",
+    "description": "Force delete a local branch:"
+  },
+  {
+    "name": "git tag -a <tag-name>",
+    "description": "Mark HEAD with a tag:"
+  },
+  {
+    "name": "git tag <tag-name> -am 'message here'",
+    "description": "Mark HEAD with a tag and open the editor to include a message:"
+  },
+  {
+    "name": "git tag",
+    "description": "Mark HEAD with a tag that includes a message:"
+  },
+  {
+    "name": "git tag -n",
+    "description": "List all tags:"
+  },
+  {
+    "name": "git remote -v",
+    "description": "List all tags with their messages (tag message or commit message if tag has no message):"
+  },
+  {
+    "name": "git remote show <remote>",
+    "description": "List all current configured remotes:"
+  },
+  {
+    "name": "git remote add <remote> <url>",
+    "description": "Show information about a remote:"
+  },
+  {
+    "name": "git remote rename <remote> <new_remote>",
+    "description": "Add new remote repository, named <remote>:"
+  },
+  {
+    "name": "git remote rm <remote>",
+    "description": "Rename a remote repository, from <remote> to <new_remote>:"
+  },
+  {
+    "name": "git fetch <remote>",
+    "description": "Remove a remote:"
+  },
+  {
+    "name": "git remote pull <remote> <url>",
+    "description": "Download all changes from <remote>, but don't integrate into HEAD:"
+  },
+  {
+    "name": "git pull origin master",
+    "description": "Download changes and directly merge/integrate into HEAD:"
+  },
+  {
+    "name": "git pull --rebase <remote> <branch>",
+    "description": "Get all changes from HEAD to local repository:"
+  },
+  {
+    "name": "git push remote <remote> <branch>",
+    "description": "Get all changes from HEAD to local repository without a merge:"
+  },
+  {
+    "name": "git push <remote> :<branch> (since Git v1.5.0)",
+    "description": "Publish local changes on a remote:"
+  },
+  {
+    "name": "git push <remote> --delete <branch> (since Git v1.7.0)",
+    "description": "Delete a branch on the remote:"
+  },
+  {
+    "name": "git push --tags",
+    "description": "Publish your tags:"
+  },
+  {
+    "name": "git mergetool",
+    "description": "Use your configured merge tool to solve conflicts:"
+  },
+  {
+    "name": "git merge <branch>",
+    "description": "Merge branch into your current HEAD:"
+  },
+  {
+    "name": "git branch --merged",
+    "description": "Rebase your current HEAD onto <branch>:"
+  },
+  {
+    "name": "git rebase <branch>",
+    "description": "Abort a rebase:"
+  },
+  {
+    "name": "git rebase --abort",
+    "description": "Continue a rebase after resolving conflicts:"
+  },
+  {
+    "name": "git rebase --continue",
+    "description": "Use your editor to manually solve conflicts and (after resolving) mark file as resolved:"
+  },
+  {
+    "name": "git add <resolved-file>",
+    "description": "Squashing commits:"
+  },
+  {
+    "name": "git rm <resolved-file>",
+    "description": "Discard all local changes in your working directory:"
+  },
+  {
+    "name": "git rebase -i <commit-just-before-first>",
+    "description": "Get all the files out of the staging area(i.e. undo the last git add):"
+  },
+  {
+    "name": "pick <commit_id>\npick <commit_id2>\npick <commit_id3>",
+    "description": "Discard local changes in a specific file:"
+  },
+  {
+    "name": "pick <commit_id>\nsquash <commit_id2>\nsquash <commit_id3>",
+    "description": "Revert a commit (by producing a new commit with contrary changes):"
+  },
+  {
+    "name": "git reset --hard HEAD",
+    "description": "Reset your HEAD pointer to a previous commit and discard all changes since then:"
+  },
+  {
+    "name": "git reset HEAD",
+    "description": "Reset your HEAD pointer to a remote branch current state."
+  },
+  {
+    "name": "git checkout HEAD <file>",
+    "description": "Reset your HEAD pointer to a previous commit and preserve all changes as unstaged changes:"
+  },
+  {
+    "name": "git revert <commit>",
+    "description": "Reset your HEAD pointer to a previous commit and preserve uncommitted local changes:"
+  },
+  {
+    "name": "git reset --hard <commit>",
+    "description": "Remove files that were accidentally committed before they were added to .gitignore"
   }
 ]
