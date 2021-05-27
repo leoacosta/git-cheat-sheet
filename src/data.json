@@ -281,7 +281,7 @@
   },
   {
     "name": "git mergetool",
-    "description": "Use your configured merge tool to solve conflicts:"
+    "description": "Use your configured merge tool to solve conflicts"
   },
   {
     "name": "git merge <branch>",
