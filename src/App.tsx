@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import commands from './data.json';
+import logoGit from './logo-git.svg';
+import logoGitHub from './logo-github.svg';
 
 interface Commands {
   name: string;
@@ -28,21 +30,22 @@ function App() {
 
   return (
     <div className="App">
+      <header className="header">
+        <div className="d-flex">
+          <img src={logoGit} alt="Git Logo" className="logo" />
+          <p className="site-title">The Git cheat sheet</p>
+        </div>
+        <a
+          className="d-flex"
+          href="https://github.com/leoacosta/git-cheat-sheet/"
+        >
+          <img src={logoGitHub} alt="GitHub Logo" className="logo--small" />
+          <p className="site-contribution">View on GitHub</p>
+        </a>
+      </header>
       <main className="App-header">
-        <h1>The Git cheat sheet</h1>
         <p>
-          <code>
-            Search for any git command you can think of.
-            <br />
-            You can also contribute on{' '}
-            <a
-              href="https://github.com/leoacosta/git-cheat-sheet"
-              className="App-link"
-            >
-              GitHub
-            </a>
-            .
-          </code>
+          <code>Search for any git command you can think of.</code>
         </p>
         <div className="search">
           <input
