@@ -18,12 +18,11 @@ a:hover {
 
 .site-header {
   background-color: #e4e4e0;
-  display: grid;
-  grid-template-columns: minmax(260px, 400px) 3fr 1fr;
-  gap: 20px;
   position: sticky;
   top: 0;
   width: 100%;
+  display: flex;
+  padding: 0.5rem 0;
 }
 
 .site-branding,
@@ -31,6 +30,7 @@ a:hover {
 .site-contribution {
   display: flex;
   align-items: center;
+  flex: 1 1 auto;
 }
 
 .site-logo {
@@ -64,6 +64,13 @@ a:hover {
 
 .site-search {
   position: relative;
+  flex-grow: 2;
+}
+
+@media (max-width: 768px) {
+  .site-search {
+    display: none;
+  }
 }
 
 .site-search input {
@@ -71,7 +78,6 @@ a:hover {
   border-radius: 24px;
   font-family: inherit;
   font-size: inherit;
-  margin: 0.5rem 0;
   outline: none;
   padding: 1rem 1.5rem;
   width: 100%;
